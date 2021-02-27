@@ -34,6 +34,16 @@ application {
     mainClassName = "rocha.thattes.App"
 }
 
+tasks.register<CreateStartScripts>("createBenchmarkStartScripts") {
+    // mainClassName.set("rocha.thattes.App");
+}
+
+tasks.register<JavaExec>("benchmark") {
+    main = "rocha.thattes.Benchmark"
+    classpath = sourceSets["main"].runtimeClasspath
+    jvmArgs = listOf("-Xmx8192m")
+}
+
 tasks.test {
     useJUnitPlatform()
 }

@@ -30,7 +30,7 @@ public class RochaThattesTest {
         .allowsSelfLoops(false)
         .<Integer, Double> immutable()
         .putEdgeValue(0,1,1.0)
-        .putEdgeValue(1,0,-1.0)
+        .putEdgeValue(1,0,-1.5)
         .build();
 
     

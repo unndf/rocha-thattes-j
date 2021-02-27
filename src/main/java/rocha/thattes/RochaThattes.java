@@ -28,6 +28,7 @@ public class RochaThattes {
 
         return messages.getCycles();
     }
+
     public static <T> void iterate (boolean inital, Set<T> activeVertices, MessageMap<T> messages, ValueGraph<T,Double> graph) {
         if (inital)
             messages.initialMessage();
