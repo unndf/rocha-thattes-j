@@ -39,7 +39,7 @@ public class MessageMap<T> {
             //this means we detected a cycle
             if (!seq.isEmpty() && seq.get(0).equals(vert)){
                 seq.add(vert);
-                if (min(seq).equals(vert)) {
+                if (min(seq).equals(vert) && pathWeight(seq) < 0.0) {
                     cycles.add(seq);
                 }
             } 
@@ -113,6 +113,24 @@ public class MessageMap<T> {
         }
         //TODO: find a solution for needing a return value
         return null;
+    }
+
+    private double pathWeight (List<T> seq) {
+        //all cycles are at least length 3
+        int vIndex = 1;
+        int uIndex = 0;
+        double sum = 0.0d;
+
+        while (vIndex < seq.size()){
+            T v = seq.get(vIndex);
+            T u = seq.get(uIndex);
+
+            sum += graph.edgeValueOrDefault(u,v,0.0d);
+            vIndex++;
+            uIndex++;
+        }
+
+        return sum;
     }
 
     public boolean receivedMessages (T vert) {

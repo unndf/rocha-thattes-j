@@ -10,7 +10,7 @@ import java.util.HashSet;
 
 public class Benchmark {
     public static void main (String[] args) {
-        int iter = 1000;
+        int iter = 100000;
         System.out.println("Starting small benchmark 3 base 3 quote `" + iter + " `iterations");
         long small = smallGraph3Base3Quote(iter);
 
